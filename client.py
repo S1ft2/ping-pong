@@ -37,7 +37,7 @@ def receive():
             game_state["winner"] = -1
             break
 
-# --- ШРИФТИ ---
+# --- ШРИФТИ ----
 font_win = font.Font(None, 72)
 font_main = font.Font(None, 36)
 # --- ЗОБРАЖЕННЯ ----
