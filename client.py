@@ -43,9 +43,10 @@ font_main = font.Font(None, 36)
 # --- ЗОБРАЖЕННЯ ----
 fon = image.load('images\ping pong fon.jpg').convert_alpha()
 fon = transform.scale(fon,(800,600))
-rocket_red = image.load('images\red.png').convert_alpha()
-rocket_red = transform.scale(rocket_red,())
-rocket_blue = image.load('images\blue.png').convert_alpha()
+rocket_red = image.load('images/red.png').convert_alpha()
+rocket_red = transform.scale(rocket_red,(100,100))
+rocket_blue = image.load('images/blue.png').convert_alpha()
+rocket_blue = transform.scale(rocket_blue,(100,100))
 # --- ЗВУКИ ---
 
 # --- ГРА ---
@@ -93,8 +94,8 @@ while True:
 
     if game_state:
         screen.blit(fon,(0,0))
-        screen.blit(rocket_red,(0,100))
-        screen.blit(rocket_blue, (20,100))
+        screen.blit(rocket_red,(20,0))
+        screen.blit(rocket_blue, (WIDTH - 40, 100))
         draw.circle(screen, (255, 255, 255), (game_state['ball']['x'], game_state['ball']['y']), 10)
         score_text = font_main.render(f"{game_state['scores'][0]} : {game_state['scores'][1]}", True, (255, 255, 255))
         screen.blit(score_text, (WIDTH // 2 -25, 20))
@@ -119,4 +120,3 @@ while True:
         client.send(b"UP")
     elif keys[K_s]:
         client.send(b"DOWN")
-    screen.blit(fon,(0,0))
